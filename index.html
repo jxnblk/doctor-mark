@@ -1,0 +1,75 @@
+<!doctype html> 
+<html lang="en"> 
+<head>
+  <meta charset="utf-8">
+  <title>Doctor Mark</title>
+  <meta name="author" content="Jxnblk">
+  <meta name="description" content="Gulp-Powered Automatic Page Generator for GH Pages">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="favicon.png">
+  <link rel="stylesheet" href="/docs/css/autobass.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Code+Pro">
+</head>
+<body class="container p2">
+
+  <header class="py2">
+    <nav class="bold">
+      <a href="http://github.com/jxnblk/doctor-mark">View on Github</a>
+      <!-- nav -->
+    </nav>
+  </header>
+
+
+<h1 id="doctor-mark"><a href="#doctor-mark">Doctor Mark</a></h1><p>A Gulp-Powered Automatic Page Generation Tool</p>
+<p><em>Work in Progress</em></p>
+<hr>
+<p><strong>Table of Contents</strong></p>
+<div class="toc"><ul><li><a href="#features">Features</a></li><li><a href="#highlighted-code-examples">Highlighted Code Examples</a><ul><li><a href="#example">Example</a></li></ul></li><li><a href="#html-partial-include">HTML Partial Include</a></li></ul></div>
+
+<hr>
+<p>Doctor Mark takes README.md files and creates styled pages for use on gh-pages branches.</p>
+<h2 id="features"><a href="#features" name="features"><a href="#features">Features</a></a></h2><ul>
+<li>Custom header and footers</li>
+<li>Table of contents generator</li>
+<li>Include HTML files inline</li>
+<li>Include HTML code examples</li>
+</ul>
+<hr>
+<h2 id="highlighted-code-examples"><a href="#highlighted-code-examples" name="highlighted-code-examples"><a href="#highlighted-code-examples">Highlighted Code Examples</a></a></h2><p>By including a bit of markup in your README.md, you can include live HTML code examples.
+Take a look at the README.md file on Github to see how it works</p>
+<div data-include="docs/examples/highlight.html" data-highlight="" class="dr-include"><div class="dr-include-example"><div data-include="docs/examples/headings.html" data-highlight="">
+  <a href="docs/examples/headings.html">Fallback Link to Headings Example</a>
+</div>
+</div><div class="highlight dr-include-code"><pre><span class="nt">&lt;div</span> <span class="na">data-include=</span><span class="s">&quot;docs/examples/headings.html&quot;</span> <span class="na">data-highlight</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;docs/examples/headings.html&quot;</span><span class="nt">&gt;</span>Fallback Link to Headings Example<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+</div>
+
+<h3 id="example"><a href="#example" name="example"><a href="#example">Example</a></a></h3><div data-include="docs/examples/headings.html" data-highlight="" class="dr-include"><div class="dr-include-example"><h1>Hamburger 1</h1>
+<h2>Hamburger 2</h2>
+<h3>Hamburger 3</h3>
+</div><div class="highlight dr-include-code"><pre><span class="nt">&lt;h1&gt;</span>Hamburger 1<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;h2&gt;</span>Hamburger 2<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;h3&gt;</span>Hamburger 3<span class="nt">&lt;/h3&gt;</span>
+</pre></div>
+</div>
+
+<h2 id="html-partial-include"><a href="#html-partial-include" name="html-partial-include"><a href="#html-partial-include">HTML Partial Include</a></a></h2><p>Include HTML partials without highlighted code by omitting the <code>data-highlight</code> attribute.</p>
+<div data-include="docs/examples/headings.html"><h1>Hamburger 1</h1>
+<h2>Hamburger 2</h2>
+<h3>Hamburger 3</h3>
+</div>
+
+
+ <footer class="py2">
+   <p>
+     <a href="http://github.com/jxnblk/doctor-mark">View on Gthub</a>
+     Made with love by
+     <a href="http://jxnblk.com">Jxnblk</a>
+   </p>
+ </footer>
+
+</body>
+</html>
+
