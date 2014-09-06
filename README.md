@@ -6,11 +6,7 @@ _Work in Progress_
 
 ---
 
-**Table of Contents**
-
 <!-- toc -->
-
----
 
 Doctor Mark takes README.md files and creates styled pages for use on gh-pages branches.
 
