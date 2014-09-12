@@ -1,12 +1,4 @@
-<!doctype html> 
-<html> 
-<head>
-  <meta charset="utf-8">
-  <title>Doctor Mark</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="favicon.png">
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Code+Pro">
-<style>
+
 body {
   font-family: 'Helvetica Neue', Helvetica, sans-serif;
   line-height: 1.5;
@@ -286,57 +278,3 @@ blockquote {
   border-radius: 3px; }
   .dr-include .highlight {
     border-radius: 0; }
-</style></head>
-<body>
-
-  <header>
-    <nav>
-      <a href="/">Home</a>
-      <!-- nav -->
-    </nav>
-  </header>
-
-
-
-<h1 id="doctor-mark">Doctor Mark</h1>
-<p>A Gulp-Powered Automatic Page Generation Tool</p>
-<p><em>Work in Progress</em></p>
-<hr>
-<!-- toc -->
-
-<p>Doctor Mark takes README.md files and creates styled pages for use on gh-pages branches.</p>
-<h2 id="features">Features</h2>
-<ul>
-<li>Custom header and footers</li>
-<li>Table of contents generator</li>
-<li>Include HTML files inline</li>
-<li>Include HTML code examples</li>
-</ul>
-<hr>
-<h2 id="highlighted-code-examples">Highlighted Code Examples</h2>
-<p>By including a bit of markup in your README.md, you can include live HTML code examples.
-Take a look at the README.md file on Github to see how it works</p>
-<div data-include="docs/examples/highlight.html" data-highlight="">
-  <a href="docs/examples/headings.html">Fallback Link to Headings Example</a>
-</div>
-
-<h3 id="example">Example</h3>
-<div data-include="docs/examples/headings.html" data-highlight=""></div>
-
-<h2 id="html-partial-include">HTML Partial Include</h2>
-<p>Include HTML partials without highlighted code by omitting the <code>data-highlight</code> attribute.</p>
-<div data-include="docs/examples/headings.html"></div>
-
-
-
- <footer class="py2">
-   <p>
-     <a href="http://github.com/jxnblk/doctor-mark">View on Gthub</a>
-     Made with love by
-     <a href="http://jxnblk.com">Jxnblk</a>
-   </p>
- </footer>
-
-</body>
-</html>
-

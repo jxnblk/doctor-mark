@@ -11,6 +11,14 @@ var footer = require('gulp-footer');
 var cheerio = require('gulp-cheerio');
 var toc = require('gulp-toc');
 
+var drmk = require('./gulp/drmk');
+gulp.task('drmk', function() {
+  gulp.src('./README.md')
+    .pipe(drmk())
+    .pipe(rename('index.html'))
+    .pipe(gulp.dest('.'));
+});
+
   // This is for HTML files
   //var pygmentize = require('./docs/gulp/pygments');
 
