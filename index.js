@@ -17,14 +17,8 @@ var cheerio = require('cheerio');
 var include = require('./lib/include-html');
 var example = require('./lib/include-html-example');
 var css = require('./lib/include-css');
-//var header = fs.readFileSync('lib/header.html', 'utf8');
-//var footer = fs.readFileSync('lib/footer.html', 'utf8');
-var header = '<html><head><title></title></head><body>\n';
-var footer = '</body></html>';
-
-
-var check = fs.readFileSync(__dirname + '/lib/header.html', 'utf8');
-console.log('check dirname stuff', check);
+var header = fs.readFileSync(__dirname + '/lib/header.html', 'utf8');
+var footer = fs.readFileSync(__dirname + '/lib/footer.html', 'utf8');
 
 marked.setOptions(require('./lib/marked-options'));
 

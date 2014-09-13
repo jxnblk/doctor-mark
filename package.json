@@ -1,6 +1,6 @@
 {
   "name": "doctor-mark",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Automatic page generator",
   "main": "index.js",
   "dependencies": {
