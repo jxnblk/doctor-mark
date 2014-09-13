@@ -17,6 +17,9 @@ var cheerio = require('cheerio');
 var include = require('./lib/include-html');
 var example = require('./lib/include-html-example');
 var css = require('./lib/include-css');
+var header = fs.readFileSync('./lib/header.html', 'utf8');
+var footer = fs.readFileSync('./lib/footer.html', 'utf8');
+
 
 marked.setOptions(require('./lib/marked-options'));
 
@@ -28,9 +31,6 @@ module.exports = function(options) {
 
     var self = this;
     var string = file.contents.toString();
-
-    var header = fs.readFileSync('./lib/header.html');
-    var footer = fs.readFileSync('./lib/footer.html');
 
     var html = marked(string);
     html = header + '\n' + html + '\n' + footer;
