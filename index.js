@@ -23,6 +23,9 @@ var header = '<html><head><title></title></head><body>\n';
 var footer = '</body></html>';
 
 
+var check = fs.readFileSync(__dirname + '/lib/header.html', 'utf8');
+console.log('check dirname stuff', check);
+
 marked.setOptions(require('./lib/marked-options'));
 
 module.exports = function(options) {
