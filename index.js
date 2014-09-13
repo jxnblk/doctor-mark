@@ -42,9 +42,8 @@ module.exports = function(options) {
     var $ = cheerio.load(html);
     var title = $('h1').first().text();
     $('title').html(title);
-
-
-    example($.html(), {}, function(result) {
+    
+    example($.html(), function(result) {
       file.contents = new Buffer(result);
       var filename =  path.basename(file.path, path.extname(file.path)) + '.html';
       file.path = path.join(path.dirname(file.path), filename);
