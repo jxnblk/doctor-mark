@@ -2,13 +2,17 @@
 
 An Automatic Page Generation Tool
 
+*Experimental Work in Progress*
+
+Use at your own risk
+
 ---
 
 
 ## Highlighted Code Examples
 
 By using a bit of markup in your README.md, you can include live HTML code examples.
-Take a look at the README.md file on Github to see how it works
+(Take a look at the README.md file on Github to see how it works)
 
 <div data-include="docs/examples/headings.html"></div>
 
