@@ -25,6 +25,8 @@ module.exports = function (options) {
   var baseurl = options.baseurl || '.';
   var placeholder = options.placeholder || /<!--\s*nav\s*-->/gi;
 
+  var cssurl = options.css || './src/basscore.min.css';
+
   var transform = function (file, enc, cb) {
 
     var self = this;
@@ -32,33 +34,45 @@ module.exports = function (options) {
     var filestring = String(file.contents);
     var header = fs.readFileSync('./gulp/header.html', 'utf8');
     var footer = fs.readFileSync('./gulp/footer.html', 'utf8');
-    var css = fs.readFileSync('./gulp/autobass.css');
+    var css = fs.readFileSync(cssurl);
+    console.log(css);
     css = '<style>' + css + '</style>';
 
     html = marked(filestring);
     html = header + '\n' + html + '\n' + footer;
 
-    cheerio.load(html, function($, done) {
-      console.log('cheerio function');
-      var $ = cheerio.load(html);
-      var title = $('h1').first().text();
-      $('title').html(title);
-      $('head').append(css);
-
-      var $includes = $('[data-include]');
-      var isIncluded = 0;
-
-      $includes.each(function(i, elem) {
-        console.log('include');
-        var partial = $(this).attr('data-include');
-        var contents = fs.readFileSync(partial, 'utf8');
-      });
-
-      file.contents = new Buffer($.html());
-      self.push(file);
-      cb();
-
+    var $ = cheerio.load(html);
+    var title = $('h1').first().text();
+    $('title').html(title);
+    $('head').append(css);
+    var $includes = $('[data-include]');
+    $includes.each(function(i, elem) {
+      var partial = $(this).attr('data-include');
     });
+    file.contents = new Buffer($.html());
+    self.push(file);
+    cb();
+
+    //cheerio.load(html, function($, done) {
+    //  console.log('cheerio function');
+    //  var $ = cheerio.load(html);
+    //  var title = $('h1').first().text();
+    //  $('title').html(title);
+    //  $('head').append(css);
+
+    //  var $includes = $('[data-include]');
+    //  var isIncluded = 0;
+
+    //  $includes.each(function(i, elem) {
+    //    console.log('include');
+    //    var partial = $(this).attr('data-include');
+    //    var contents = fs.readFileSync(partial, 'utf8');
+    //  });
+
+    //  file.contents = new Buffer($.html());
+    //  self.push(file);
+    //  cb();
+    //});
 
   };
 
