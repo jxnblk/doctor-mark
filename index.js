@@ -29,8 +29,8 @@ module.exports = function(options) {
     var self = this;
     var string = file.contents.toString();
 
-    var header = fs.readFileSync('lib/header.html');
-    var footer = fs.readFileSync('lib/footer.html');
+    var header = fs.readFileSync('./lib/header.html');
+    var footer = fs.readFileSync('./lib/footer.html');
 
     var html = marked(string);
     html = header + '\n' + html + '\n' + footer;
