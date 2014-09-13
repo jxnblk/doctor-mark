@@ -8,7 +8,7 @@ var doctorMark = require('./index.js');
 gulp.task('test', function() {
   gulp.src('./README.md')
     .pipe(doctorMark())
-    .pipe(rename('test.html'))
+    .pipe(rename('index.html'))
     .pipe(gulp.dest('.'));
 });
 
