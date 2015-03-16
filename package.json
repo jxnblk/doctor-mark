@@ -5,19 +5,13 @@
   "main": "index.js",
   "dependencies": {
     "cheerio": "^0.17.0",
+    "highlight.js": "^8.4.0",
+    "lodash": "^3.5.0",
     "marked": "^0.3.2",
-    "pygmentize-bundled": "^2.1.1",
-    "through2": "^0.6.1"
+    "mdast": "^0.12.0"
   },
   "devDependencies": {
-    "gulp": "^3.8.7",
-    "gulp-cheerio": "^0.3.2",
-    "gulp-footer": "^1.0.5",
-    "gulp-header": "^1.0.5",
-    "gulp-connect": "^2.0.6",
-    "gulp-rename": "^1.2.0",
-    "gulp-toc": "^0.1.0",
-    "gulp-watch": "^0.6.9"
+    "marked-example": "^1.0.4"
   },
   "author": "Brent Jackson",
   "license": "MIT",
