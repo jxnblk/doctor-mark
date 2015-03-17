@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title><%= obj.title %></title>
+  <meta name="author" content="<%= obj.author %>">
+  <meta name="description" content="<%= obj.description %>">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <% if (obj.keywords.length) { %>
+  <meta name="keywords" content="<%= obj.keywords.join() %>">
+  <% } %>
+  <% obj.stylesheets.map(function(stylesheet) { %>
+    <link rel="stylesheet" href="<%= stylesheet %>">
+  <% }) %>
+</head>
+<body>
+
+  <div class="container px2">
+
+    <div class="py2 mb3">
+      <%= content %>
+    </div>
+
+    <footer class="py2 border-top">
+      <div class="flex flex-baseline mxn1">
+        <a href="<%= obj.base_url %>" class="px1">
+          <%= obj.name %>
+        </a>
+        <div class="px1">v<%= obj.version %></div>
+        <div class="flex-auto"></div>
+        <a href="<%= obj.homepage %>" class="px1">Github</a>
+        <% if (npm) { %>
+          <a href="http://npmjs.com/package/<%= obj.name %>" class="px1">NPM</a>
+        <% } %>
+      </div>
+    </footer>
+
+  </div>
+
+  <% obj.javascripts.map(function(script) { %>
+    <script src="<%= script %>"></script>
+  <% }) %>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Doctor-mark</title>
+  <meta name="author" content="Brent Jackson">
+  <meta name="description" content="Automatic page generator">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+    <link rel="stylesheet" href="http://d2v52k3cl9vedd.cloudfront.net/bassdock/1.2.1/bassdock.min.css">
+  
+</head>
+<body>
+
+  <div class="container px2">
+
+    <div class="py2 mb3">
+      <h1>Doctor Mark</h1>
+<p>An Automatic Page Generation Tool http://jxnblk.com/doctor-mark</p>
+<pre><code class="language-bash">npm install doctor-mark
+</code></pre>
+<h2>Features</h2>
+<ul>
+<li>Converts markdown to HTML</li>
+<li>Includes <code>marked-example</code> to convert HTML code blocks to live examples with rendered HTML</li>
+<li>Linkable headings</li>
+<li>TOC</li>
+<li>Custom template option using lodash templates</li>
+<li>Custom stylesheets and script tag options</li>
+<li>Use <code>package.json</code> as a data source for:
+<ul>
+<li>Page title</li>
+<li>Meta description</li>
+<li>Meta author</li>
+<li>Meta keywords</li>
+<li>Github link</li>
+<li>NPM link</li>
+</ul></li>
+</ul>
+<h2>Getting Started</h2>
+<p>Create a custom build script in your repo, requiring doctor-mark.</p>
+<pre><code class="language-js">// build.js
+var fs = require('fs');
+var path = require('path');
+var doctorMark = require('doctor-mark');
+var pkg = require('./package.json');
+var readme = fs.readFileSync(path.join(__dirname, './README.md'), 'utf8');
+
+var html = doctorMark(readme, pkg);
+fs.writeFileSync('./index.html', html);
+</code></pre>
+<p>Add an NPM run script to package.json</p>
+<pre><code class="language-json">&quot;scripts&quot;: {
+  &quot;start&quot;: &quot;node build&quot;
+}
+</code></pre>
+<h2>HTML Example Demo</h2>
+<pre><code class="language-html">&lt;h1 class=&quot;h2&quot;&gt;Hamburger&lt;/h1&gt;
+&lt;p&gt;This will be converted to a live code example.&lt;/p&gt;
+</code></pre>
+
+    </div>
+
+    <footer class="py2 border-top">
+      <div class="flex flex-baseline mxn1">
+        <a href="/" class="px1">
+          doctor-mark
+        </a>
+        <div class="px1">v0.0.11</div>
+        <div class="flex-auto"></div>
+        <a href="https://github.com/jxnblk/doctor-mark" class="px1">Github</a>
+        
+          <a href="http://npmjs.com/package/doctor-mark" class="px1">NPM</a>
+        
+      </div>
+    </footer>
+
+  </div>
+
+  
+</body>
+</html>
