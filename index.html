@@ -17,10 +17,9 @@
 
     <div class="py2 mb3">
       <h1>Doctor Mark</h1>
-<p>An Automatic Page Generation Tool http://jxnblk.com/doctor-mark</p>
-<pre><code class="language-bash">npm install doctor-mark
-</code></pre>
-<h2>Features</h2>
+<p>An Automatic Page Generation Tool <a href="http://jxnblk.com/doctor-mark">http://jxnblk.com/doctor-mark</a></p>
+<pre>npm install doctor-mark
+</pre><h2>Features</h2>
 <ul>
 <li>Converts markdown to HTML</li>
 <li>Includes <code>marked-example</code> to convert HTML code blocks to live examples with rendered HTML</li>
@@ -40,25 +39,30 @@
 </ul>
 <h2>Getting Started</h2>
 <p>Create a custom build script in your repo, requiring doctor-mark.</p>
-<pre><code class="language-js">// build.js
-var fs = require('fs');
-var path = require('path');
-var doctorMark = require('doctor-mark');
-var pkg = require('./package.json');
-var readme = fs.readFileSync(path.join(__dirname, './README.md'), 'utf8');
+<pre><span class="hljs-comment">// build.js</span>
+<span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
+<span class="hljs-keyword">var</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>);
+<span class="hljs-keyword">var</span> doctorMark = <span class="hljs-built_in">require</span>(<span class="hljs-string">'doctor-mark'</span>);
+<span class="hljs-keyword">var</span> pkg = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./package.json'</span>);
+<span class="hljs-keyword">var</span> readme = fs.readFileSync(path.join(__dirname, <span class="hljs-string">'./README.md'</span>), <span class="hljs-string">'utf8'</span>);
 
-var html = doctorMark(readme, pkg);
-fs.writeFileSync('./index.html', html);
-</code></pre>
-<p>Add an NPM run script to package.json</p>
-<pre><code class="language-json">&quot;scripts&quot;: {
-  &quot;start&quot;: &quot;node build&quot;
+<span class="hljs-keyword">var</span> html = doctorMark(readme, pkg);
+fs.writeFileSync(<span class="hljs-string">'./index.html'</span>, html);
+</pre><p>Add an NPM run script to package.json</p>
+<pre>"scripts": {
+  "start": "node build"
 }
-</code></pre>
-<h2>HTML Example Demo</h2>
-<pre><code class="language-html">&lt;h1 class=&quot;h2&quot;&gt;Hamburger&lt;/h1&gt;
-&lt;p&gt;This will be converted to a live code example.&lt;/p&gt;
-</code></pre>
+</pre><h2>HTML Example Demo</h2>
+<div class="MarkedExample mb2 bg-darken-1 rounded">
+  <div class="MarkedExample-rendered p2">
+    <h1 class="h2">Hamburger</h1>
+<p>This will be converted to a live code example.</p>
+
+  </div>
+  <pre class="MarkedExample-code m0 p2 bg-darken-1 rounded-bottom"><span class="hljs-tag">&lt;<span class="hljs-title">h1</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"h2"</span>&gt;</span>Hamburger<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>This will be converted to a live code example.<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+</pre>
+</div>
 
     </div>
 

@@ -5,8 +5,10 @@
   "main": "index.js",
   "dependencies": {
     "cheerio": "^0.17.0",
+    "commander": "^2.7.1",
     "highlight.js": "^8.4.0",
     "lodash": "^3.5.0",
+    "markdown-toc": "^0.9.0",
     "marked": "^0.3.2",
     "mdast": "^0.12.0",
     "remarkable": "^1.6.0"
@@ -15,7 +17,8 @@
     "marked-example": "^1.0.4"
   },
   "scripts": {
-    "example": "node example/build"
+    "example": "node example/build",
+    "cli": "node bin/doctormark ./ ./"
   },
   "author": "Brent Jackson",
   "license": "MIT",

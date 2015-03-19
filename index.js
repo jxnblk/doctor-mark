@@ -10,46 +10,41 @@
 var _ = require('lodash');
 var fs = require('fs');
 var path = require('path');
-
-var markedExample = require('marked-example');
+var example = require('./lib/remarkable-example');
 
 var Remarkable = require('remarkable');
 var md = new Remarkable({
   html: true,
   linkify: true,
-  highlight: markedExample({
-    classes: {
-      container: 'mb2 bg-darken-1 rounded',
-      rendered: 'p2',
-      code: 'm0 p2 bg-darken-1 rounded-bottom'
-    }
-  }),
-});
+  //highlight: markedExample(exampleOptions),
+}).use(example);
 
 
-// Marked
-var marked = require('marked');
-var renderer = new marked.Renderer();
-renderer.code = markedExample({
-  classes: {
-    container: 'mb2 bg-darken-1 rounded',
-    rendered: 'p2',
-    code: 'm0 p2 bg-darken-1 rounded-bottom'
-  }
-});
-renderer.heading = function (text, level) {
-  var name = text.toLowerCase().replace(/[^\w]+/g, '-');
-  var result;
-  if (level < 4) {
-    result =
-      '<h' + level + ' id="' + name + '">'+
-        '<a href="#' + name + '">'+ text + '</a>'+
-      '</h' + level + '>';
-  } else {
-    result = '<h' + level + '>' + text + '</h' + level + '>';
-  }
-  return result;
-}
+  // Marked
+  //var markedExample = require('marked-example');
+  //var exampleOptions = {
+  //  classes: {
+  //    container: 'mb2 bg-darken-1 rounded',
+  //    rendered: 'p2',
+  //    code: 'm0 p2 bg-darken-1 rounded-bottom'
+  //  }
+  //};
+  //var marked = require('marked');
+  //var renderer = new marked.Renderer();
+  //renderer.code = markedExample(exampleOptions);
+  //renderer.heading = function (text, level) {
+  //  var name = text.toLowerCase().replace(/[^\w]+/g, '-');
+  //  var result;
+  //  if (level < 4) {
+  //    result =
+  //      '<h' + level + ' id="' + name + '">'+
+  //        '<a href="#' + name + '">'+ text + '</a>'+
+  //      '</h' + level + '>';
+  //  } else {
+  //    result = '<h' + level + '>' + text + '</h' + level + '>';
+  //  }
+  //  return result;
+  //}
 
 
 
@@ -72,23 +67,19 @@ module.exports = function(src, options) {
   var tpl;
   var html;
 
-  var markedOptions = {
-    renderer: renderer,
-  };
-
   options.title = options.title || _.capitalize(options.name);
 
   tpl = _.template(options.template);
-  options.content = marked(src, markedOptions);
 
-  // Testing remarkable
-  //options.content = md.render(src);
-  // issues:
-  // - linkify does not work
-  // - wraps all code blocks in code tag - doesn't work with marked-example
+    // Marked
+    //var markedOptions = {
+    //  renderer: renderer,
+    //};
+    //options.content = marked(src, markedOptions);
 
+  // Remarkable
+  options.content = md.render(src)
   html = tpl(options);
-
   return html;
 
 };
