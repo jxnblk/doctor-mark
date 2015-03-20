@@ -15,12 +15,11 @@
 
   <div class="container px2">
 
-    <div class="py2 mb3">
-      <h1>Doctor Mark</h1>
-<p>An Automatic Page Generation Tool <a href="http://jxnblk.com/doctor-mark">http://jxnblk.com/doctor-mark</a></p>
+    <div class="clearfix mb3 mxn2">
+      <div class="sm-col sm-col-9 px2">
+        <h1>Doctor Mark</h1><p>An Automatic Page Generation Tool <a href="http://jxnblk.com/doctor-mark">http://jxnblk.com/doctor-mark</a></p>
 <pre>npm install doctor-mark
-</pre><h2>Features</h2>
-<ul>
+</pre><h2>Features</h2><ul>
 <li>Converts markdown to HTML</li>
 <li>Includes <code>marked-example</code> to convert HTML code blocks to live examples with rendered HTML</li>
 <li>Linkable headings</li>
@@ -37,8 +36,7 @@
 <li>NPM link</li>
 </ul></li>
 </ul>
-<h2>Getting Started</h2>
-<p>Create a custom build script in your repo, requiring doctor-mark.</p>
+<h2>Getting Started</h2><p>Create a custom build script in your repo, requiring doctor-mark.</p>
 <pre><span class="hljs-comment">// build.js</span>
 <span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
 <span class="hljs-keyword">var</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>);
@@ -52,8 +50,7 @@ fs.writeFileSync(<span class="hljs-string">'./index.html'</span>, html);
 <pre>"scripts": {
   "start": "node build"
 }
-</pre><h2>HTML Example Demo</h2>
-<div class="MarkedExample mb2 bg-darken-1 rounded">
+</pre><h2>HTML Example Demo</h2><div class="MarkedExample mb2 bg-darken-1 rounded">
   <div class="MarkedExample-rendered p2">
     <h1 class="h2">Hamburger</h1>
 <p>This will be converted to a live code example.</p>
@@ -63,7 +60,43 @@ fs.writeFileSync(<span class="hljs-string">'./index.html'</span>, html);
 <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>This will be converted to a live code example.<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
 </pre>
 </div>
-
+<h3><code>code heading</code></h3>
+      </div>
+      <div class="sm-col sm-col-3 px2">
+        <ul class="list-reset">
+          
+            <li>
+              <a href="#doctor-mark">
+                Doctor Mark
+              </a>
+            <li>
+          
+            <li>
+              <a href="#features">
+                Features
+              </a>
+            <li>
+          
+            <li>
+              <a href="#getting-started">
+                Getting Started
+              </a>
+            <li>
+          
+            <li>
+              <a href="#html-example-demo">
+                HTML Example Demo
+              </a>
+            <li>
+          
+            <li>
+              <a href="#code-heading">
+                `code heading`
+              </a>
+            <li>
+          
+        </ul>
+      </div>
     </div>
 
     <footer class="py2 border-top">

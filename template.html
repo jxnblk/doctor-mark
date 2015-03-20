@@ -17,8 +17,21 @@
 
   <div class="container px2">
 
-    <div class="py2 mb3">
-      <%= content %>
+    <div class="clearfix mb3 mxn2">
+      <div class="sm-col sm-col-9 px2">
+        <%= content %>
+      </div>
+      <div class="sm-col sm-col-3 px2">
+        <ul class="list-reset">
+          <% obj.toc.map(function(item) { %>
+            <li>
+              <a href="#<%= _.kebabCase(item.content) %>">
+                <%= item.content %>
+              </a>
+            <li>
+          <% }) %>
+        </ul>
+      </div>
     </div>
 
     <footer class="py2 border-top">

@@ -52,3 +52,5 @@ Add an NPM run script to package.json
 <p>This will be converted to a live code example.</p>
 ```
 
+### `code heading`
+

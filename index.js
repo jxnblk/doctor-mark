@@ -10,42 +10,18 @@
 var _ = require('lodash');
 var fs = require('fs');
 var path = require('path');
-var example = require('./lib/remarkable-example');
-
 var Remarkable = require('remarkable');
+var toc = require('markdown-toc');
+
+var example = require('./lib/remarkable-example');
+var headings = require('./lib/headings');
+
 var md = new Remarkable({
-  html: true,
-  linkify: true,
-  //highlight: markedExample(exampleOptions),
-}).use(example);
-
-
-  // Marked
-  //var markedExample = require('marked-example');
-  //var exampleOptions = {
-  //  classes: {
-  //    container: 'mb2 bg-darken-1 rounded',
-  //    rendered: 'p2',
-  //    code: 'm0 p2 bg-darken-1 rounded-bottom'
-  //  }
-  //};
-  //var marked = require('marked');
-  //var renderer = new marked.Renderer();
-  //renderer.code = markedExample(exampleOptions);
-  //renderer.heading = function (text, level) {
-  //  var name = text.toLowerCase().replace(/[^\w]+/g, '-');
-  //  var result;
-  //  if (level < 4) {
-  //    result =
-  //      '<h' + level + ' id="' + name + '">'+
-  //        '<a href="#' + name + '">'+ text + '</a>'+
-  //      '</h' + level + '>';
-  //  } else {
-  //    result = '<h' + level + '>' + text + '</h' + level + '>';
-  //  }
-  //  return result;
-  //}
-
+    html: true,
+    linkify: true,
+  })
+  //.use(headings)
+  .use(example);
 
 
 module.exports = function(src, options) {
@@ -71,11 +47,7 @@ module.exports = function(src, options) {
 
   tpl = _.template(options.template);
 
-    // Marked
-    //var markedOptions = {
-    //  renderer: renderer,
-    //};
-    //options.content = marked(src, markedOptions);
+  options.toc = toc(src).json;
 
   // Remarkable
   options.content = md.render(src)
