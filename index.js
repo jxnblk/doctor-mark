@@ -10,42 +10,34 @@
 var _ = require('lodash');
 var fs = require('fs');
 var path = require('path');
-var example = require('./lib/remarkable-example');
-
-var Remarkable = require('remarkable');
-var md = new Remarkable({
-  html: true,
-  linkify: true,
-  //highlight: markedExample(exampleOptions),
-}).use(example);
+var marked = require('marked');
+var markedExample = require('marked-example');
+var toc = require('markdown-toc');
+var mdast = require('mdast');
 
 
-  // Marked
-  //var markedExample = require('marked-example');
-  //var exampleOptions = {
-  //  classes: {
-  //    container: 'mb2 bg-darken-1 rounded',
-  //    rendered: 'p2',
-  //    code: 'm0 p2 bg-darken-1 rounded-bottom'
-  //  }
-  //};
-  //var marked = require('marked');
-  //var renderer = new marked.Renderer();
-  //renderer.code = markedExample(exampleOptions);
-  //renderer.heading = function (text, level) {
-  //  var name = text.toLowerCase().replace(/[^\w]+/g, '-');
-  //  var result;
-  //  if (level < 4) {
-  //    result =
-  //      '<h' + level + ' id="' + name + '">'+
-  //        '<a href="#' + name + '">'+ text + '</a>'+
-  //      '</h' + level + '>';
-  //  } else {
-  //    result = '<h' + level + '>' + text + '</h' + level + '>';
-  //  }
-  //  return result;
-  //}
+var renderer = new marked.Renderer();
+renderer.code = markedExample({
+  classes: {
+    container: 'mb2 bg-darken-1 rounded',
+    rendered: 'p2',
+    code: 'm0 p2 bg-darken-1 rounded-bottom'
+  }
+});
 
+renderer.heading = function (text, level) {
+  var name = text.toLowerCase().replace(/[^\w]+/g, '-');
+  var result;
+  if (level < 4) {
+    result =
+      '<h' + level + ' id="' + name + '">'+
+        '<a href="#' + name + '">'+ text + '</a>'+
+      '</h' + level + '>';
+  } else {
+    result = '<h' + level + '>' + text + '</h' + level + '>';
+  }
+  return result;
+}
 
 
 module.exports = function(src, options) {
@@ -63,22 +55,34 @@ module.exports = function(src, options) {
     keywords: [],
     homepage: '',
     npm: true,
+    stripFirstHeading: true,
+    stripFirstP: true,
   });
   var tpl;
   var html;
 
-  options.title = options.title || _.capitalize(options.name);
 
   tpl = _.template(options.template);
 
-    // Marked
-    //var markedOptions = {
-    //  renderer: renderer,
-    //};
-    //options.content = marked(src, markedOptions);
+  function getFirst(type, root) {
+    var index = _.findIndex(root.children, { type: type });
+    var first = root.children.splice(index, 1)[0];
+    var md = mdast.stringify(first);
+    var html = marked(md);
+    return html;
+  }
 
-  // Remarkable
-  options.content = md.render(src)
+  options.title = options.title || _.capitalize(options.name);
+  options.ast = mdast.parse(src);
+  options.firstHeading = getFirst('heading', options.ast);
+  options.firstParagraph = getFirst('paragraph', options.ast);
+  // JSON helper function
+  options.json = function(obj) {
+    return JSON.stringify(obj, null, 2);
+  };
+  options.toc = toc(src).json;
+  options.content = marked(src, { renderer: renderer });
+
   html = tpl(options);
   return html;
 

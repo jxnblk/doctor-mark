@@ -10,11 +10,10 @@
     "lodash": "^3.5.0",
     "markdown-toc": "^0.9.0",
     "marked": "^0.3.2",
-    "mdast": "^0.12.0",
-    "remarkable": "^1.6.0"
+    "marked-example": "^1.0.4",
+    "mdast": "^0.12.0"
   },
   "devDependencies": {
-    "marked-example": "^1.0.4"
   },
   "scripts": {
     "example": "node example/build",
