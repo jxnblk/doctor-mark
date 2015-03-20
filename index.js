@@ -55,8 +55,7 @@ module.exports = function(src, options) {
     keywords: [],
     homepage: '',
     npm: true,
-    stripFirstHeading: true,
-    stripFirstP: true,
+    stripHeader: true,
   });
   var tpl;
   var html;
@@ -72,6 +71,7 @@ module.exports = function(src, options) {
     return html;
   }
 
+
   options.title = options.title || _.capitalize(options.name);
   options.ast = mdast.parse(src);
   options.firstHeading = getFirst('heading', options.ast);
@@ -81,6 +81,10 @@ module.exports = function(src, options) {
     return JSON.stringify(obj, null, 2);
   };
   options.toc = toc(src).json;
+
+  if (options.stripHeader) {
+    src = mdast.stringify(options.ast);
+  }
   options.content = marked(src, { renderer: renderer });
 
   html = tpl(options);

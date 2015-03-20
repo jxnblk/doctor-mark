@@ -1,11 +1,14 @@
 #!/usr/bin/env node
 
+var _ = require('lodash');
 var program = require('commander');
 var doctor = require('..');
 var fs = require('fs');
 var path = require('path');
 
 var version = require('../package.json').version;
+var config = {};
+
 
 program
   .version(version)
@@ -30,19 +33,23 @@ function readSource(src) {
   };
 }
 
+
 if (program.args) {
-  var src = program.args[0];
-  var dest = program.args[1];
+  var src = program.args[0] || '.';
+  var dest = program.args[1] || '.';
   var content = readSource(src);
+  var readme = content.readme;
+  var data = content.pkg;
+
+  if (data.doctor_mark) {
+    _.assign(data, data.doctor_mark);
+  }
+
   try {
-    var html = doctor(content.readme, content.pkg);
+    var html = doctor(readme, data);
     writeFile(html, dest);
   } catch(e) {
     console.error(e);
   }
 }
 
-
-  //"bin": {
-  //  "basswork": "bin/basswork.js"
-  //},

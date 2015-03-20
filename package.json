@@ -17,9 +17,14 @@
   },
   "scripts": {
     "example": "node example/build",
-    "cli": "node bin/doctormark ./ ./"
+    "cli": "node bin/doctormark" 
+  },
+  "bin": {
+    "doctor-mark": "bin/doctormark.js"
   },
   "author": "Brent Jackson",
   "license": "MIT",
-  "homepage": "https://github.com/jxnblk/doctor-mark"
+  "homepage": "https://github.com/jxnblk/doctor-mark",
+  "doctor_mark": {
+  }
 }
