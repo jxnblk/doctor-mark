@@ -26,7 +26,7 @@ renderer.code = markedExample({
 });
 
 renderer.heading = function (text, level) {
-  var name = text.toLowerCase().replace(/[^\w]+/g, '-');
+  var name = _.kebabCase(text);
   var result;
   if (level < 4) {
     result =
@@ -53,9 +53,11 @@ module.exports = function(src, options) {
     version: '',
     description: '',
     keywords: [],
-    homepage: '',
+    homepage: false,
     npm: true,
     stripHeader: true,
+    // header: '',
+    // footer: '',
   });
   var tpl;
   var html;
@@ -85,10 +87,17 @@ module.exports = function(src, options) {
   if (options.stripHeader) {
     src = mdast.stringify(options.ast);
   }
+
   options.content = marked(src, { renderer: renderer });
 
-  html = tpl(options);
-  return html;
+  function html() {
+    return tpl(options);
+  }
+
+  return {
+    html: html,
+    content: options.content,
+  }
 
 };
 

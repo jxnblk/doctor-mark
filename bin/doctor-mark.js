@@ -46,7 +46,7 @@ if (program.args) {
   }
 
   try {
-    var html = doctor(readme, data);
+    var html = doctor(readme, data).html();
     writeFile(html, dest);
   } catch(e) {
     console.error(e);

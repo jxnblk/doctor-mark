@@ -17,10 +17,10 @@
   },
   "scripts": {
     "example": "node example/build",
-    "cli": "node bin/doctormark" 
+    "cli": "node bin/doctor-mark" 
   },
   "bin": {
-    "doctor-mark": "bin/doctormark.js"
+    "doctor-mark": "bin/doctor-mark.js"
   },
   "author": "Brent Jackson",
   "license": "MIT",
