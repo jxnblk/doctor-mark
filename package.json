@@ -1,6 +1,6 @@
 {
   "name": "doctor-mark",
-  "version": "0.0.11",
+  "version": "1.0.0",
   "description": "Automatic page generator",
   "main": "index.js",
   "dependencies": {
@@ -12,11 +12,10 @@
     "marked-example": "^1.0.4",
     "mdast": "^0.12.0"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "scripts": {
     "example": "node example/build",
-    "cli": "node bin/doctor-mark" 
+    "cli": "node bin/doctor-mark"
   },
   "bin": {
     "doctor-mark": "bin/doctor-mark.js"
@@ -24,6 +23,5 @@
   "author": "Brent Jackson",
   "license": "MIT",
   "homepage": "https://github.com/jxnblk/doctor-mark",
-  "doctor_mark": {
-  }
+  "doctor_mark": {}
 }
