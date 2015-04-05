@@ -1,6 +1,6 @@
 # Doctor Mark
 
-An Automatic Page Generation Tool http://jxnblk.com/doctor-mark
+An Automatic Page Generation Tool <http://jxnblk.com/doctor-mark>
 
 ## Features
 - Converts markdown to a full templated HTML page
@@ -14,8 +14,8 @@ An Automatic Page Generation Tool http://jxnblk.com/doctor-mark
   - Meta description
   - Meta author
   - Meta keywords
-  - Github link
-  - NPM link
+  - GitHub link
+  - npm link
 
 ## Getting Started
 
@@ -50,13 +50,13 @@ var fs = require('fs');
 var path = require('path');
 var doctorMark = require('doctor-mark');
 var pkg = require('./package.json');
-var readme = fs.readFileSync(path.join(__dirname, './README.md'), 'utf8');
+var readme = fs.readFileSync(path.join(__dirname, 'README.md'), 'utf8');
 
 var html = doctorMark(readme, pkg).html();
 fs.writeFileSync('./index.html', html);
 ```
 
-Optionally add an NPM run script to package.json
+Optionally add an npm run script to package.json
 
 ```json
 "scripts": {
@@ -67,7 +67,7 @@ Optionally add an NPM run script to package.json
 ## HTML Example Demo
 
 ```html
-<h1 class="h2">Hamburger</h1>
+<h1 class="h1">Hamburger</h1>
 <p>This will be converted to a live code example.</p>
 ```
 
@@ -104,10 +104,10 @@ Description to be inserted in a meta tag.
 Keywords to be inserted in a meta tag.
 
 ### homepage
-Github repo URL to be inserted in the header and footer.
+GitHub repo URL to be inserted in the header and footer.
 
 ### npm
-(*boolean*) Creates an NPM link in the header and footer based on `name`.
+(*boolean*) Creates an npm link in the header and footer based on `name`.
 Defaults to `true`.
 
 ### stripHeader
