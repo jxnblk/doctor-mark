@@ -44,6 +44,9 @@ if (program.args) {
   if (data.doctor_mark) {
     _.assign(data, data.doctor_mark);
   }
+  if (fs.existsSync(path.join(src, data.template))) {
+    data.template = fs.readFileSync(path.join(src, data.template), 'utf8');
+  }
 
   try {
     var html = doctor(readme, data).html();
