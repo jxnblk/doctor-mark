@@ -23,6 +23,13 @@
   "author": "Brent Jackson",
   "license": "MIT",
   "homepage": "https://github.com/jxnblk/doctor-mark",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jxnblk/doctor-mark"
+  },
+  "bugs": {
+    "url": "https://github.com/jxnblk/doctor-mark/issues"
+  },
   "doctor_mark": {
     "base_url": "/doctor-mark"
   }
